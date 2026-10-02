@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../model/poli.dart';
+import 'poli_detail.dart';
 
 class PoliPage extends StatefulWidget {
   const PoliPage({super.key});
@@ -13,11 +15,22 @@ class _PoliPageState extends State<PoliPage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Data Poli")),
       body: ListView(
-        children: const [
-          Card(
-            child: ListTile(
-              title: const Text("Poli Anak"),
+        children: [
+          GestureDetector(
+            child: Card(
+              child: ListTile(
+                title: const Text("Poli Anak"),
+              ),
             ),
+            onTap: () {
+              Poli poliAnak = new Poli(namaPoli: "Poli Anak");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PoliDetail(poli: poliAnak),
+                ),
+              );
+            },
           ),
           Card(
             child: ListTile(
